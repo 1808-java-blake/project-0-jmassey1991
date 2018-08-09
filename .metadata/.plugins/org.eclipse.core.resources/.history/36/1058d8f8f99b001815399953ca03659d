@@ -1,0 +1,29 @@
+package com.revature.daos;
+
+import com.revature.beans.User;
+
+public class UserSerializer implements UserDao {
+
+	public void createUser(User u) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public User findByUsernameAndPassword(String username, String password) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public void updateUser(User u) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void deleteUser(User u) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	
+
+}

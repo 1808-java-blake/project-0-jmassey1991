@@ -1,0 +1,14 @@
+package com.revature.screens;
+
+import com.revature.beans.CurrentValues;
+
+public class HomeScreen implements Screen {
+
+	@Override
+	public Screen start() {
+		CurrentValues currentValues = CurrentValues.getInstance();
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

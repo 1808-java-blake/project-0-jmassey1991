@@ -1,0 +1,5 @@
+package com.revature.screens;
+
+public class RegisterUserScreen implements Screen {
+
+}

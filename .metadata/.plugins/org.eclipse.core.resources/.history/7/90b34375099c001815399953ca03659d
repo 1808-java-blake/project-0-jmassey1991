@@ -1,0 +1,19 @@
+package com.revature.screens;
+
+import java.util.Scanner;
+
+import com.revature.beans.CurrentValues;
+import com.revature.daos.UserDao;
+
+public class RegisterUserScreen implements Screen {
+	private Scanner scan = new Scanner(System.in);
+	private UserDao ud = UserDao.currentUserDao;
+
+	@Override
+	public Screen start() {
+		CurrentValues currentValues = CurrentValues.getInstance();
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}
