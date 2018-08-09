@@ -74,13 +74,38 @@ public class UserSerializer implements UserDao {
 	}
 
 	public void updateUser(User u) {
-		// TODO Auto-generated method stub
-		
+		if (u== null) {
+			return;
+		}
+		File f = new File("src/main/resources/users/" + u.getUsername() + ".txt");
+		if (!f.exists()) {
+			System.out.println("User doesn't already exists");
+			return;
+		}
+		try (ObjectOutputStream oos = new ObjectOutputStream(
+				new FileOutputStream(f))) {
+
+			oos.writeObject(u);
+
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public void deleteUser(User u) {
-		// TODO Auto-generated method stub
-		
+		if (u== null) {
+			return;
+		}
+		File f = new File("src/main/resources/users/" + u.getUsername() + ".txt");
+		if (!f.exists()) {
+			System.out.println("User doesn't already exists");
+			return;
+		}
+		f.delete();
 	}
 	
 	
