@@ -19,6 +19,7 @@ public class AccountOptionsScreen implements Screen {
 		System.out.println("----------------------------------------------");
 		if(currentValues.currentAccount == null)System.out.println("Current Account: NO ACCOUNT");
 		else System.out.println("| Current Account: " + currentValues.currentAccount.getAccountNumber() + " | Type: " + currentValues.currentAccount.getAccountType());
+		System.out.println("");
 		System.out.println("Please choose from following options:");
 		System.out.println("Enter 1 to make a new account");
 		System.out.println("Enter 2 to choose account to open");
@@ -34,6 +35,22 @@ public class AccountOptionsScreen implements Screen {
 		case "1":
 			return new RegisterAccountScreen();
 		case "2":
+			if(currentValues.currentUser.isAdmin()) {
+				System.out.println("Enter any account number to switch to the account");
+				String acc = scan.nextLine();
+				Account a = new Account();
+				a = ad.findByAccountNumber(acc);
+				if (a == null) {
+					System.out.println("account not found");
+					return this;
+					}
+				currentValues.currentAccount = a;
+				return this;
+			}
+			if(currentValues.currentUser.getAccounts() == null) {
+				System.out.println("No accounts to display");
+				return this;
+			}
 			ArrayList<String> accounts = currentValues.currentUser.getAccounts();
 			System.out.println("Accounts:");
 			for(int i = 0; i < accounts.size(); i++) {

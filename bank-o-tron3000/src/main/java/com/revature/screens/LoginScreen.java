@@ -28,6 +28,7 @@ public class LoginScreen implements Screen {
 		User curUser = ud.findByUsernameAndPassword(username, password);
 		if (curUser != null) {
 			currentValues.currentUser = curUser;
+			currentValues.currentAccount = null;
 			return new HomeScreen();
 		}
 

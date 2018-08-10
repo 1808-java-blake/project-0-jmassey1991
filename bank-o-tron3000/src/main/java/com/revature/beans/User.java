@@ -15,18 +15,20 @@ public class User implements Serializable{
 	private String password;
 	private String firstName;
 	private String lastName;
+	private boolean admin;
 	private ArrayList<String> accounts;
 
 	public User() {
 		super();
 	}
 
-	public User(String username, String password, String firstName, String lastName) {
+	public User(String username, String password, String firstName, String lastName, boolean admin) {
 		super();
 		this.username = username;
 		this.password = password;
 		this.firstName = firstName;
 		this.lastName = lastName;
+		this.admin = admin;
 		
 	}
 
@@ -40,6 +42,14 @@ public class User implements Serializable{
 		}
 		this.accounts.add(account);
 		
+	}
+
+	public boolean isAdmin() {
+		return admin;
+	}
+
+	public void setAdmin(boolean admin) {
+		this.admin = admin;
 	}
 
 	public String getUsername() {

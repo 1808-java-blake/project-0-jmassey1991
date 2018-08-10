@@ -23,6 +23,11 @@ public class RegisterUserScreen implements Screen {
 		u.setFirstName(scan.nextLine());
 		System.out.println("Enter last name");
 		u.setLastName(scan.nextLine());
+		System.out.println("Are you an admin? 'y' for yes or 'n' for no");
+		String yesOrNo = scan.nextLine();
+		if(yesOrNo.equals("y"))
+			u.setAdmin(true);
+		else u.setAdmin(false);
 		
 		
 		//try {
