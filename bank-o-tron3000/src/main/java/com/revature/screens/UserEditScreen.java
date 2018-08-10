@@ -14,6 +14,7 @@ public class UserEditScreen implements Screen {
 	public Screen start() {
 		System.out.println("----------------------------------------------");
 		System.out.println("Current User: " + currentValues.currentUser.getUsername() );
+		System.out.println("");
 		System.out.println("Please chose from following options:");
 		System.out.println("Enter 1 to delete current user");
 		System.out.println("Enter 2 to edit user name");

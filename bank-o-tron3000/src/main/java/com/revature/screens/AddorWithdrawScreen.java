@@ -17,6 +17,7 @@ public class AddorWithdrawScreen implements Screen {
 		System.out.println("----------------------------------------------");
 		if(currentValues.currentAccount == null)System.out.println("Current Account: NO ACCOUNT");
 		else System.out.println("| Current Account: " + currentValues.currentAccount.getAccountNumber() + " | Type: " + currentValues.currentAccount.getAccountType());
+		System.out.println("");
 		System.out.println("Please choose from following options:");
 		System.out.println("Enter 1 to make a deposit");
 		System.out.println("Enter 2 to make a withdraw");
@@ -27,6 +28,7 @@ public class AddorWithdrawScreen implements Screen {
 		switch (selection) {
 		
 		case "1":
+			System.out.println("Enter amount to deposit");
 			String depAmount = scan.nextLine();
 			currentValues.currentAccount.setBalance(currentValues.currentAccount.getBalance() + Integer.valueOf(depAmount));
 			currentValues.currentAccount.addTransHistory("New Balance after a deposit of " + depAmount + " = $ " + currentValues.currentAccount.getBalance());
@@ -35,6 +37,7 @@ public class AddorWithdrawScreen implements Screen {
 			return this;
 			
 		case "2":
+			System.out.println("Enter amount to withdraw");
 			String withAmount = scan.nextLine();
 			if(Integer.valueOf(withAmount) > currentValues.currentAccount.getBalance()) {
 				System.out.println("Can't withdraw that much, current balance is $ " + currentValues.currentAccount.getBalance());

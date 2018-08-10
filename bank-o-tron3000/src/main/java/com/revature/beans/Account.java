@@ -13,7 +13,7 @@ public class Account implements Serializable {
 	private String accountNumber;
 	private int balance;
 	private String accountType;
-	private List<String> TransHistory;
+	private ArrayList<String> TransHistory;
 	public Account() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -23,14 +23,17 @@ public class Account implements Serializable {
 		this.accountNumber = accountNumber;
 		this.balance = balance;
 		this.accountType = accountType;
-		this.TransHistory = new ArrayList<>();
+		
 	}
-	public List<String> getTransHistory() {
+	public ArrayList<String> getTransHistory() {
 		return TransHistory;
 	}
 
 	public void addTransHistory(String transHistory) {
-		TransHistory.add(transHistory);
+		if(TransHistory == null) {
+			this.TransHistory = new ArrayList<>();
+		}
+		this.TransHistory.add(transHistory);
 		
 	}
 	public String getAccountNumber() {

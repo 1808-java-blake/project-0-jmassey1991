@@ -16,6 +16,7 @@ public class RegisterAccountScreen implements Screen {
 	@Override
 	public Screen start() {
 		System.out.println("----------------------------------------------");
+		System.out.println("");
 		Account a = new Account();
 		System.out.println("Enter new account number");
 		a.setAccountNumber(scan.nextLine());
