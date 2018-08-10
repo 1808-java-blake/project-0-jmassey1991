@@ -3,6 +3,7 @@ package com.revature.beans;
 public class CurrentValues {
 	private static CurrentValues singleInstance = null;
 	public User currentUser;
+	public Account currentAccount;
 	
 	
 	private CurrentValues() {

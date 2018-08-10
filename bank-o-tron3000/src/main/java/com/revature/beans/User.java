@@ -16,11 +16,10 @@ public class User implements Serializable{
 	private String password;
 	private String firstName;
 	private String lastName;
-	private List<String> TransHistory;
+	private List<String> accounts;
 
 	public User() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public User(String username, String password, String firstName, String lastName) {
@@ -29,16 +28,18 @@ public class User implements Serializable{
 		this.password = password;
 		this.firstName = firstName;
 		this.lastName = lastName;
-		this.TransHistory = new ArrayList<>();
 		
 	}
 
-	public List<String> getTransHistory() {
-		return TransHistory;
+	public List<String> getAccounts() {
+		return accounts;
 	}
 
-	public void addTransHistory(String transHistory) {
-		TransHistory.add(transHistory);
+	public void addaccount(String account) {
+		if(accounts == null) {
+			this.accounts = new ArrayList<>();
+		}
+		this.accounts.add(account);
 		
 	}
 
@@ -120,7 +121,7 @@ public class User implements Serializable{
 	@Override
 	public String toString() {
 		return "User [username=" + username + ", password=" + password + ", firstName=" + firstName + ", lastName="
-				+ lastName + "]";
+				+ lastName + ", accounts=" + accounts + "]";
 	}
 
 }
