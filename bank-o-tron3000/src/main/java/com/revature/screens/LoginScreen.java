@@ -14,7 +14,7 @@ public class LoginScreen implements Screen {
 	@Override
 	public Screen start() {
 		CurrentValues currentValues = CurrentValues.getInstance();
-		
+		System.out.println("----------------------------------------------");
 		System.out.println("Enter Username or type Register to sign up: ");
 		String username = scan.nextLine();
 		if ("register".equalsIgnoreCase(username)) {

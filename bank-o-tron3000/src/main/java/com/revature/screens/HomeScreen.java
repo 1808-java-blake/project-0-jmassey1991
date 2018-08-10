@@ -11,6 +11,7 @@ public class HomeScreen implements Screen {
 	private UserDao ud = UserDao.currentUserDao;
 	@Override
 	public Screen start() {
+		System.out.println("----------------------------------------------");
 		System.out.println("Current User: " + currentValues.currentUser.getUsername() );
 		System.out.println("Please chose from following options:");
 		System.out.println("Enter 1 to for account options");

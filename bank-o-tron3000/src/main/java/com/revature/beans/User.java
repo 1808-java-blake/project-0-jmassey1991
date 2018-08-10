@@ -2,7 +2,6 @@ package com.revature.beans;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.List;
 
 public class User implements Serializable{
 	
@@ -16,7 +15,7 @@ public class User implements Serializable{
 	private String password;
 	private String firstName;
 	private String lastName;
-	private List<String> accounts;
+	private ArrayList<String> accounts;
 
 	public User() {
 		super();
@@ -31,7 +30,7 @@ public class User implements Serializable{
 		
 	}
 
-	public List<String> getAccounts() {
+	public ArrayList<String> getAccounts() {
 		return accounts;
 	}
 

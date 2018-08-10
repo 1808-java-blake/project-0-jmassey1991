@@ -9,7 +9,6 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
 import com.revature.beans.Account;
-import com.revature.beans.User;
 
 public class AccountSerializer implements AccountDao {
 
@@ -77,7 +76,26 @@ public class AccountSerializer implements AccountDao {
 
 	@Override
 	public void updateAccount(Account a) {
-		// TODO Auto-generated method stub
+		if (a== null) {
+			return;
+		}
+		File f = new File("src/main/resources/accounts/" + a.getAccountNumber() + ".txt");
+		if (!f.exists()) {
+			System.out.println("User doesn't already exists");
+			return;
+		}
+		try (ObjectOutputStream oos = new ObjectOutputStream(
+				new FileOutputStream(f))) {
+
+			oos.writeObject(a);
+
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 	}
 
