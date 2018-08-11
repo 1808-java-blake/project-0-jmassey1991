@@ -2,7 +2,6 @@ package com.revature.beans;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.List;
 
 public class Account implements Serializable {
 	
@@ -14,6 +13,8 @@ public class Account implements Serializable {
 	private int balance;
 	private String accountType;
 	private ArrayList<String> TransHistory;
+	//private CurrentValues currentValues = CurrentValues.getInstance();
+	
 	public Account() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -92,9 +93,25 @@ public class Account implements Serializable {
 				+ "]";
 	}
 	
+	public void depositFunds(String depAmount) {
+		this.setBalance(this.getBalance() + Integer.valueOf(depAmount));
+		this.addTransHistory("New Balance after a deposit of " + depAmount + " = $ " + this.getBalance());
+		System.out.println("New Balance after deposit = $ " + this.getBalance());
+
+		
+	}
 	
-	
-	
+	public void withdrawFunds(String withAmount) {
+		if(Integer.valueOf(withAmount) > this.getBalance()) {
+			System.out.println("Can't withdraw that much, current balance is $ " + this.getBalance());
+			return;
+		}
+		this.setBalance(this.getBalance() - Integer.valueOf(withAmount));
+		this.addTransHistory("New Balance after a withdraw of " + withAmount + " = $ " + this.getBalance());
+		System.out.println("New Balance after withdraw = $ " + this.getBalance());
+		
+		
+	}
 	
 
 }

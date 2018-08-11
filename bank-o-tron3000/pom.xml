@@ -4,4 +4,20 @@
   <artifactId>bank-o-tron3000</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <name>Project0</name>
+  <dependencies>
+  <dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-core</artifactId>
+			<version>2.18.3</version>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/junit/junit -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.12</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
 </project>

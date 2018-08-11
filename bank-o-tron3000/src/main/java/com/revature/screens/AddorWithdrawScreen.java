@@ -30,22 +30,14 @@ public class AddorWithdrawScreen implements Screen {
 		case "1":
 			System.out.println("Enter amount to deposit");
 			String depAmount = scan.nextLine();
-			currentValues.currentAccount.setBalance(currentValues.currentAccount.getBalance() + Integer.valueOf(depAmount));
-			currentValues.currentAccount.addTransHistory("New Balance after a deposit of " + depAmount + " = $ " + currentValues.currentAccount.getBalance());
-			System.out.println("New Balance after deposit = $ " + currentValues.currentAccount.getBalance());
+			currentValues.currentAccount.depositFunds(depAmount);
 			ad.updateAccount(currentValues.currentAccount);
 			return this;
 			
 		case "2":
 			System.out.println("Enter amount to withdraw");
 			String withAmount = scan.nextLine();
-			if(Integer.valueOf(withAmount) > currentValues.currentAccount.getBalance()) {
-				System.out.println("Can't withdraw that much, current balance is $ " + currentValues.currentAccount.getBalance());
-				return this;
-			}
-			currentValues.currentAccount.setBalance(currentValues.currentAccount.getBalance() - Integer.valueOf(withAmount));
-			currentValues.currentAccount.addTransHistory("New Balance after a withdraw of " + withAmount + " = $ " + currentValues.currentAccount.getBalance());
-			System.out.println("New Balance after withdraw = $ " + currentValues.currentAccount.getBalance());
+			currentValues.currentAccount.withdrawFunds(withAmount);
 			ad.updateAccount(currentValues.currentAccount);
 			return this;
 			
