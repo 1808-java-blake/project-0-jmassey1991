@@ -16,18 +16,27 @@ public class AccountOptionsScreen implements Screen {
 	
 	@Override
 	public Screen start() {
-		System.out.println("----------------------------------------------");
+		System.out.println("---------------------------------------------------------------------------------------------------------------------------------- \n");
+		System.out.println("__________                __             _______          ___________                       ._______________  _______  _______   ");
+		System.out.println("\\______   \\_____    ____ |  | __         \\   _  \\         \\__    ___/______  ____   ____    |   ____/\\   _  \\ \\   _  \\ \\   _  \\  ");
+		System.out.println(" |    |  _/\\__  \\  /    \\|  |/ /  ______ /  /_\\  \\   ______ |    |  \\_  __ \\/  _ \\ /    \\   |____  \\ /  /_\\  \\/  /_\\  \\/  /_\\  \\ ");
+		System.out.println(" |    |   \\ / __ \\|   |  \\    <  /_____/ \\  \\_/   \\ /_____/ |    |   |  | \\(  <_> )   |  \\  /       \\\\  \\_/   \\  \\_/   \\  \\_/   \\");
+		System.out.println(" |______  /(____  /___|  /__|_ \\          \\_____  /         |____|   |__|   \\____/|___|  / /______  / \\_____  /\\_____  /\\_____  /");
+		System.out.println("        \\/      \\/     \\/     \\/                \\/                                     \\/         \\/        \\/       \\/       \\/ ");
+		System.out.println("");
+		System.out.println("");
+		System.out.println("----------------------------------------------------------------------------------------------------------------------------------");
+		System.out.println("");
 		if(currentValues.currentAccount == null)System.out.println("Current Account: NO ACCOUNT");
-		else System.out.println("| Current Account: " + currentValues.currentAccount.getAccountNumber() + " | Type: " + currentValues.currentAccount.getAccountType());
+		else System.out.println("| Current Account: " + currentValues.currentAccount.getAccountNumber() + " | Type: " + currentValues.currentAccount.getAccountType() + " | Balance: $" + currentValues.currentAccount.getBalance());
 		System.out.println("");
 		System.out.println("Please choose from following options:");
 		System.out.println("Enter 1 to make a new account");
 		System.out.println("Enter 2 to choose account to open");
-		System.out.println("Enter 3 view current account balance");
-		System.out.println("Enter 4 withdraw or deposit to or from current account");
-		System.out.println("Enter 5 to view transaction history of current account");
-		System.out.println("Enter 6 delete an account");
-		System.out.println("Enter 7 to return to main menu");
+		System.out.println("Enter 3 withdraw, deposit  or wire money to or from an account");
+		System.out.println("Enter 4 to view transaction history of current account");
+		System.out.println("Enter 5 add a shared account to your accounts");
+		System.out.println("Enter 6 to return to main menu");
 		
 		String selection = scan.nextLine();
 		
@@ -62,7 +71,7 @@ public class AccountOptionsScreen implements Screen {
 			if(accounts.contains(selectedAccount)) {
 			 a = ad.findByAccountNumber(selectedAccount);
 				if (a == null) {
-				System.out.println("account not found");
+				System.out.println("account file not found");
 				return this;
 				}
 				currentValues.currentAccount = a;
@@ -72,22 +81,36 @@ public class AccountOptionsScreen implements Screen {
 				System.out.println("You did not select one of your accounts");
 				return this;
 			}
-			
-			
+					
 		case "3":
-			System.out.println("Balance:");
-			System.out.println("$ " + currentValues.currentAccount.getBalance());
-			return this;
-		case "4":
 			return new AddorWithdrawScreen();
 			
-		case "5":
+		case "4":
+			if(currentValues.currentAccount.getTransHistory() == null) {
+				System.out.println("No transactions yet");
+				return this;
+			}
 			System.out.println("Transaction History:");
 			for(String history: currentValues.currentAccount.getTransHistory())
 				System.out.println(history);
 			return this;
+		case "5":
+			System.out.println("Enter the account number you wish to share and add to your accounts");
+			String acc = scan.nextLine();
+			Account sa = ad.findByAccountNumber(acc);
+			if(sa == null)return this;
 			
-		case "7":
+			currentValues.currentUser.addaccount(sa.getAccountNumber());
+			System.out.println("Successfully added account #" + sa.getAccountNumber() + " to your accounts");
+			ud.updateUser(currentValues.currentUser);
+			ArrayList<String> accs = currentValues.currentUser.getAccounts();
+			System.out.println("Accounts:");
+			for(int i = 0; i < accs.size(); i++) {
+				System.out.println( (i+1) + ": " + accs.get(i));
+			}
+			return this;
+		
+		case "6":
 			return new HomeScreen();
 		}
 		

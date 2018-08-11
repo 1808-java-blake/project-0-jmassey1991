@@ -11,7 +11,17 @@ public class HomeScreen implements Screen {
 	private UserDao ud = UserDao.currentUserDao;
 	@Override
 	public Screen start() {
-		System.out.println("----------------------------------------------");
+		System.out.println("---------------------------------------------------------------------------------------------------------------------------------- \n");
+		System.out.println("__________                __             _______          ___________                       ._______________  _______  _______   ");
+		System.out.println("\\______   \\_____    ____ |  | __         \\   _  \\         \\__    ___/______  ____   ____    |   ____/\\   _  \\ \\   _  \\ \\   _  \\  ");
+		System.out.println(" |    |  _/\\__  \\  /    \\|  |/ /  ______ /  /_\\  \\   ______ |    |  \\_  __ \\/  _ \\ /    \\   |____  \\ /  /_\\  \\/  /_\\  \\/  /_\\  \\ ");
+		System.out.println(" |    |   \\ / __ \\|   |  \\    <  /_____/ \\  \\_/   \\ /_____/ |    |   |  | \\(  <_> )   |  \\  /       \\\\  \\_/   \\  \\_/   \\  \\_/   \\");
+		System.out.println(" |______  /(____  /___|  /__|_ \\          \\_____  /         |____|   |__|   \\____/|___|  / /______  / \\_____  /\\_____  /\\_____  /");
+		System.out.println("        \\/      \\/     \\/     \\/                \\/                                     \\/         \\/        \\/       \\/       \\/ ");
+		System.out.println("");
+		System.out.println("");
+		System.out.println("----------------------------------------------------------------------------------------------------------------------------------");
+		System.out.println("");
 		System.out.println("Current User: " + currentValues.currentUser.getUsername() );
 		System.out.println("");
 		System.out.println("Please chose from following options:");
