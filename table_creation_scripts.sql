@@ -1,4 +1,4 @@
-SET SCHEMA 'banking_app';
+SET SCHEMA 'Bank_o_Tron5000';
 
 CREATE TABLE accounts (
 	accountnumber VARCHAR(10) PRIMARY KEY,

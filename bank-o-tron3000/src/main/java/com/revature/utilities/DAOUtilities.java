@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DAOUtilities {
-	private static final String CONNECTION_USERNAME = "revature-aws-1808";
+	private static final String CONNECTION_USERNAME = "postgres";
 	private static final String CONNECTION_PASSWORD = "password";
 	private static final String URL = "jdbc:postgresql://revature-1808.cxks8zic54ol.us-east-1.rds.amazonaws.com:5432/postgres";
 	private static Connection connection;
