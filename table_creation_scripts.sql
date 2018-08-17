@@ -1,5 +1,4 @@
-SET SCHEMA 'Bank_o_Tron5000';
-
+SET SCHEMA 'bank_o_tron';
 CREATE TABLE accounts (
 	accountnumber VARCHAR(10) PRIMARY KEY,
 	balance INTEGER,
@@ -15,12 +14,12 @@ CREATE TABLE users (
 );
 
 CREATE TABLE users_accounts (
-	username VARCHAR(10) REFERENCES users(username),
-	accountnumber VARCHAR(10) REFERENCES accounts(accountnumber),
+	username VARCHAR(10) REFERENCES users(username)ON DELETE CASCADE,
+	accountnumber VARCHAR(10) REFERENCES accounts(accountnumber)ON DELETE CASCADE,
 	PRIMARY KEY (username, accountnumber)
 );
 
 CREATE TABLE user_transaction_history (
-	accountnumber VARCHAR(10) REFERENCES accounts(accountnumber),
+	accountnumber VARCHAR(10) REFERENCES accounts(accountnumber)ON DELETE CASCADE,
 	transactionhistory VARCHAR(40)
 );

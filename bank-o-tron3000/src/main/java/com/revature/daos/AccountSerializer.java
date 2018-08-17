@@ -13,21 +13,21 @@ import com.revature.beans.Account;
 public class AccountSerializer implements AccountDao {
 
 	@Override
-	public void createAccount(Account a) {
+	public int createAccount(Account a) {
 		if (a== null) {
-			return;
+			return -1;
 		}
 		File f = new File("src/main/resources/accounts/" + a.getAccountNumber() + ".txt");
 		System.out.println(f.getName());
 		if (f.exists()) {
 			System.out.println("Account already exists");
-			return;
+			return -1;
 		}
 		try {
 			f.createNewFile();
 		} catch (IOException e) {
 			e.printStackTrace();
-			return;
+			return -1;
 		}
 		try (ObjectOutputStream oos = new ObjectOutputStream(
 				new FileOutputStream(f))) {
@@ -41,6 +41,7 @@ public class AccountSerializer implements AccountDao {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		return 0;
 		
 	}
 

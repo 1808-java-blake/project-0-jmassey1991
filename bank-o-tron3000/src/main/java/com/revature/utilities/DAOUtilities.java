@@ -7,7 +7,7 @@ import java.sql.SQLException;
 public class DAOUtilities {
 	private static final String CONNECTION_USERNAME = "postgres";
 	private static final String CONNECTION_PASSWORD = "password";
-	private static final String URL = "jdbc:postgresql://revature-1808.cxks8zic54ol.us-east-1.rds.amazonaws.com:5432/postgres";
+	private static final String URL = "jdbc:postgresql://revature-1808.cxks8zic54ol.us-east-1.rds.amazonaws.com:5432/postgres?currentSchema=bank_o_tron";
 	private static Connection connection;
 	
 	public static synchronized Connection getConnection() throws SQLException {
@@ -23,7 +23,7 @@ public class DAOUtilities {
 		
 		//If connection was closed then retrieve a new connection
 		if (connection.isClosed()){
-			System.out.println("Opening new connection...");
+			//System.out.println("Opening new connection...");
 			connection = DriverManager.getConnection(URL, CONNECTION_USERNAME, CONNECTION_PASSWORD);
 		}
 		return connection;

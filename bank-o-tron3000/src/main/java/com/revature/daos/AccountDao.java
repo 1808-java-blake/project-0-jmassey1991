@@ -3,12 +3,12 @@ package com.revature.daos;
 import com.revature.beans.Account;
 
 public interface AccountDao {
-public static final AccountDao currentAccountDao = new AccountSerializer();
+public static final AccountDao currentAccountDao = new AccountDatabase();
 	
-	void createAccount(Account u);
+	int createAccount(Account a);
 	Account findByAccountNumber(String accountNumber);
-	void updateAccount(Account u);
-	void deleteAccount(Account u);
+	void updateAccount(Account a);
+	void deleteAccount(Account a);
 
 }
 

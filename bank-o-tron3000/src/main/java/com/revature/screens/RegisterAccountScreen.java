@@ -36,11 +36,12 @@ public class RegisterAccountScreen implements Screen {
 		
 		
 		//try {
-		    ad.createAccount(a);
+		   if(ad.createAccount(a) >= 0) {
 		    //System.out.println(currentValues.currentAccount);
 			currentValues.currentAccount = a;
 			currentValues.currentUser.addaccount(a.getAccountNumber());
 			ud.updateUser(currentValues.currentUser);
+			}
 		return new AccountOptionsScreen();
 	}
 
