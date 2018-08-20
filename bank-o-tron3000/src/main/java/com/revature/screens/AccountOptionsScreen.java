@@ -83,9 +83,17 @@ public class AccountOptionsScreen implements Screen {
 			}
 					
 		case "3":
+			if(currentValues.currentAccount == null) {
+				System.out.println("No account opened yet");
+				return this;
+			}
 			return new AddorWithdrawScreen();
 			
 		case "4":
+			if(currentValues.currentAccount == null) {
+				System.out.println("No account opened yet");
+				return this;
+			}
 			if(currentValues.currentAccount.getTransHistory() == null) {
 				System.out.println("No transactions yet");
 				return this;
