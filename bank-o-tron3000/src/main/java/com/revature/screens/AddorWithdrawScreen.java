@@ -56,7 +56,10 @@ public class AddorWithdrawScreen implements Screen {
 			System.out.println("Enter the account number you wish to wire money to");
 			String acc = scan.nextLine();
 			Account a = ad.findByAccountNumber(acc);
-			if(a == null)return this;
+			if(a == null) {
+				System.out.println("Account with that account number not found");
+				return this;
+			}
 			System.out.println("Enter the amount you wish to wire to account " + a.getAccountNumber());
 			String wireAmount = scan.nextLine();
 			if(Integer.valueOf(wireAmount) > currentValues.currentAccount.getBalance()) {
