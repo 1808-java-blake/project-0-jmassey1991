@@ -106,7 +106,10 @@ public class AccountOptionsScreen implements Screen {
 			System.out.println("Enter the account number you wish to share and add to your accounts");
 			String acc = scan.nextLine();
 			Account sa = ad.findByAccountNumber(acc);
-			if(sa == null)return this;
+			if(sa == null) {
+				System.out.println("Did not find account with that account number");
+				return this;			
+			}
 			
 			currentValues.currentUser.addaccount(sa.getAccountNumber());
 			System.out.println("Successfully added account #" + sa.getAccountNumber() + " to your accounts");
